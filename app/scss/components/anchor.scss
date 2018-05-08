@@ -2,4 +2,8 @@
     height: 650px;
     background-color: tomato;
 
+    &:nth-child(odd) {
+        background-color: Steelblue;
+    }
+
 }

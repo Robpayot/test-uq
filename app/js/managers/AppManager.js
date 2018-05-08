@@ -1,15 +1,14 @@
-// import EmitterManager from './EmitterManager'
-// import Loader from '../components/Loader'
+import MasterView from '../views/MasterView'
 
 class AppManager {
 
 	constructor() {
 
+		this.start = this.start.bind(this)
+
 	}
 
 	start() {
-
-		console.log('start')
 
 		// No routes, only one view
 
