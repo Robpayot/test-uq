@@ -83,7 +83,7 @@ export default class Scroller {
 
 		if (this.scrollTargetSmooth !== this.prevTargetYSmooth) {
 
-			EmitterManager.emit(SCROLL_UPDATE, this.scrollTargetSmooth)
+			EmitterManager.emit(SCROLL_UPDATE, this.scrollTargetSmooth) // This event is called only if you scroll, it's stop if you don't
 
 		} else if (this.isScrollTicking === true) {
 
@@ -103,6 +103,8 @@ export default class Scroller {
 
 	handleScrollUpdate(scrollTarget) {
 		// Apply translation on the main content
+
+		global.scrollTarget = scrollTarget
 
 		this.el.style.transform = `translate3d(0, ${scrollTarget}px, 0)`
 	}

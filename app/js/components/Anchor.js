@@ -15,6 +15,8 @@ export default class Anchor {
 		this.el = obj.el
 		this.id = obj.index
 
+		this.ui = {}
+
 		this.isIntersecting = false
 		this.scrollTarget = 0
 
@@ -83,18 +85,28 @@ export default class Anchor {
 
 	}
 
-	handleScrollUpdate(scrollTarget) {
+	handleScrollUpdate() {
 
-		// add transi-in at 30% top of the section
-		// if (this.hasAppeared !== true) {
-		if (Math.abs(scrollTarget) + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
+		// // add transi-in at 30% top of the section
+		// // if (this.hasAppeared !== true) {
+		// if (-scrollTarget + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
+		// 	this.el.classList.add('transi-in')
+		// 	this.hasAppeared = true
+		// } else {
+		// 	this.el.classList.remove('transi-in')
+		// }
+		// // }
+
+	}
+
+	handleRaf() {
+
+		if (-global.scrollTarget + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
 			this.el.classList.add('transi-in')
 			this.hasAppeared = true
 		} else {
 			this.el.classList.remove('transi-in')
 		}
-		// }
-
 	}
 
 	setUnits() {
