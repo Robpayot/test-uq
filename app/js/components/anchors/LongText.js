@@ -22,9 +22,9 @@ export default class LongText extends Anchor {
 
 		// update text
 		// since apparition
-		const percent = (-scrollTarget + ResizeManager.height - this.startFix ) / (this.elOffsetHeight * 2)
+		// const percent = (-scrollTarget + ResizeManager.height - this.startFix ) / (this.elOffsetHeight * 2)
 
-		this.ui.text.style.left = `-${percent * this.maxW}px`
+		// this.ui.text.style.left = `-${percent * this.maxW}px`
 
 	}
 

@@ -27,16 +27,12 @@ export default class Distortion extends Anchor {
 
 
 		// Create a noise Sprite of distortion
-		this.noiseSprite = Sprite.fromImage(LoadManager.noise)
+		this.noiseSprite = this.setImage(this.resources['noise'].texture)
 		// repeat sprite
 		this.noiseSprite.texture.baseTexture.wrapMode = WRAP_MODES.REPEAT
 
-		this.centerImage(this.noiseSprite)
-
-		this.stage.addChild(this.noiseSprite)
-
 		// Create a sprite to display
-		this.sprite = this.setImage(this.resources['hero'].texture, true)
+		this.sprite = this.setImage(this.resources['hero'].texture)
 
 		// this.noiseSprite.initX = this.noiseSprite.x
 
@@ -165,13 +161,7 @@ export default class Distortion extends Anchor {
 		// Resize sprites
 		this.ratio = width / height
 
-		for (let i = 0; i < this.imgs.length; i++) {
-			this.centerImage(this.imgs[i], true)
-		}
-
-		if (this.videoSprite) {
-			this.centerImage(this.videoSprite)
-		}
+		this.centerImage(this.sprite)
 
 		this.noiseSprite.initX = this.noiseSprite.x
 

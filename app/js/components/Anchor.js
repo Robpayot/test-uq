@@ -58,6 +58,11 @@ export default class Anchor {
 				ticker.shared.add(this.handleRaf)
 			}
 
+			if (this.enable instanceof Function) {
+				// Listen  for distortion
+				this.enable()
+			}
+
 		} else {
 
 			this.el.classList.remove('is-visible')
@@ -65,6 +70,11 @@ export default class Anchor {
 
 			if (this.handleRaf instanceof Function) {
 				ticker.shared.remove(this.handleRaf)
+			}
+
+			if (this.disable instanceof Function) {
+				// Listen  for distortion
+				this.disable()
 			}
 
 		}
