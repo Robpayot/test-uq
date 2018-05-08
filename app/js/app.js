@@ -8,7 +8,7 @@ import AppManager from './managers/AppManager'
 	// Load instagram pictures
 
 	const xmlhttp = new XMLHttpRequest()
-	const url = 'http://uqstaging.com/instagram/'
+	const url = 'https://uqstaging.com/instagram/'
 
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState === 4 && this.status === 200) {
