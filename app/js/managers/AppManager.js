@@ -4,8 +4,12 @@ class AppManager {
 
 	constructor() {
 
-		this.start = this.start.bind(this)
+		this.bind()
 
+	}
+
+	bind() {
+		this.start = this.start.bind(this)
 	}
 
 	start() {

@@ -13,7 +13,7 @@ class Loader {
 
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState === 4 && this.status === 200) {
-				global.instagram = JSON.parse(this.responseText)
+				global.instagram = JSON.parse(this.responseText).data
 
 				callback()
 

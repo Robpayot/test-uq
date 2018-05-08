@@ -1,5 +1,7 @@
 import Scroller from '../components/Scroller'
+// anchors
 import Anchor from '../components/Anchor'
+import Hero from '../components/anchors/Hero'
 
 export default class MasterView {
 
@@ -17,7 +19,12 @@ export default class MasterView {
 
 		this.ui.anchors.forEach((el, index) => {
 
-			new Anchor({ el, index })
+			if (el.classList.contains('hero') === true) {
+				new Hero({ el, index })
+			} else {
+				new Anchor({ el, index })
+			}
+
 		})
 
 	}

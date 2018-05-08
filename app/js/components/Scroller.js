@@ -39,8 +39,8 @@ export default class Scroller {
 
 	events(method) {
 
-		let onListener = method === false ? 'removeListener' : 'on'
-		let evListener = method === false ? 'removeEventListener' : 'addEventListener'
+		const onListener = method === false ? 'removeListener' : 'on'
+		const evListener = method === false ? 'removeEventListener' : 'addEventListener'
 
 		document[evListener]('scroll', this.handleScroll)
 
@@ -53,7 +53,7 @@ export default class Scroller {
 	createScroll(height) {
 
 		// create div with full content height
-		let div = document.createElement('div')
+		const div = document.createElement('div')
 		div.className = 'scroller'
 		document.body.appendChild(div)
 		div.style.height = `${height}px`

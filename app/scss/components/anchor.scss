@@ -1,14 +1,19 @@
 .anchor {
     height: 65.0rem;
-    background-color: tomato;
+    background-color: black;
     visibility: hidden;
-
-    &:nth-child(odd) {
-        background-color: Steelblue;
-    }
+    position: relative;
+    z-index: 1;
 
     &.is-visible {
         visibility: visible;
+    }
+
+    &__bkg {
+        opacity: 0.5;
+        z-index: 0;
+        position: relative;
+        z-index: -1;
     }
 
 }

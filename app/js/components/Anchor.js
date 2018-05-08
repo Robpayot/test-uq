@@ -1,7 +1,7 @@
 import EmitterManager from '../managers/EmitterManager'
 import { SCROLL_UPDATE, WINDOW_RESIZE } from '../utils/events'
 import { getOffsetTop } from '../utils/dom'
-import Device from '../utils/device'
+import ResizeManager from '../managers/ResizeManager'
 import ViewportObserver from '../observers/ViewportObserver'
 import { ticker } from 'pixi.js'
 
@@ -17,6 +17,9 @@ export default class Anchor {
 
 		this.isIntersecting = false
 		this.scrollTarget = 0
+
+		// init Instagram
+		this.initInstagram()
 
 		// setUnits
 		this.setUnits()
@@ -62,16 +65,35 @@ export default class Anchor {
 
 	events(method) {
 
-		let onListener = method === false ? 'removeListener' : 'on'
+		const onListener = method === false ? 'removeListener' : 'on'
 
-		EmitterManager[onListener](SCROLL_UPDATE, Device.touch ? this.handleScrollUpdateTouch : this.handleScrollUpdate)
+		EmitterManager[onListener](SCROLL_UPDATE, this.handleScrollUpdate)
 		EmitterManager[onListener](WINDOW_RESIZE, this.handleResize)
 
 	}
 
-	handleScrollUpdate() {
-		// round
-		// console.log('scroll update')
+	initInstagram() {
+
+		const img = new Image()
+		img.src = global.instagram[this.id - 1].images.standard_resolution.url
+		img.classList.add('anchor__bkg')
+		img.classList.add('fit')
+
+		this.el.appendChild(img)
+
+	}
+
+	handleScrollUpdate(scrollTarget) {
+
+		// add transi-in at 30% top of the section
+		// if (this.hasAppeared !== true) {
+		if (Math.abs(scrollTarget) + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
+			this.el.classList.add('transi-in')
+			this.hasAppeared = true
+		} else {
+			this.el.classList.remove('transi-in')
+		}
+		// }
 
 	}
 
@@ -81,7 +103,7 @@ export default class Anchor {
 
 		// Clean transformations
 		this.el.style.transform = ''
-		this.startFix = getOffsetTop(this.el) // not working if element already transformedY
+		this.startFix = getOffsetTop(this.el)
 		this.startEnd = this.startFix + this.elOffsetHeight
 
 	}

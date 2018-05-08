@@ -19,18 +19,18 @@
 
 %Regular {
     @extend %smooth; // Optionnal
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 %Light {
     @extend %smooth; // Optionnal
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
 }
 
 %Bold {
     @extend %smooth; // Optionnal
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto Slab', serif;
     font-weight: 700;
 }
 

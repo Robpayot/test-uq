@@ -1,0 +1,20 @@
+.big-text {
+
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: scale(0.8) translate(-50%, -50%);
+        transform-origin: 0% 50%;
+        will-change: transform;
+        opacity: 0;
+
+        .transi-in & {
+            opacity: 1;
+            transform: scale(1) translate(-50%, -50%);
+            transition: opacity 1s ease, transform 1.8s $ExpoEaseOut;
+        }
+    }
+}
