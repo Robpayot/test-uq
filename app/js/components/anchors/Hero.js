@@ -26,7 +26,7 @@ export default class Hero extends Anchor {
 
 			this.el.style.transform = `translate3d(0, ${-scrollTarget}px, 0)`
 
-			// // --> percent Deplacement de l'image
+			// --> percent Deplacement de l'image
 			const percent = (-scrollTarget + this.startFix) / this.elOffsetHeight
 
 			this.el.style.opacity = `${1 - percent}`

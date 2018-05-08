@@ -2,6 +2,7 @@ import Scroller from '../components/Scroller'
 // anchors
 import Anchor from '../components/Anchor'
 import Hero from '../components/anchors/Hero'
+import Distortion from '../components/anchors/Distortion'
 import LongText from '../components/anchors/LongText'
 
 export default class MasterView {
@@ -22,6 +23,8 @@ export default class MasterView {
 
 			if (el.classList.contains('hero') === true) {
 				new Hero({ el, index })
+			} else if (el.classList.contains('distortion') === true) {
+				new Distortion({ el, index })
 			} else if (el.classList.contains('long-text') === true) {
 				new LongText({ el, index })
 			} else {

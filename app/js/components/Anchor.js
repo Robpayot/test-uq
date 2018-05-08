@@ -1,9 +1,11 @@
-import EmitterManager from '../managers/EmitterManager'
 import { SCROLL_UPDATE, WINDOW_RESIZE } from '../utils/events'
 import { getOffsetTop } from '../utils/dom'
+import EmitterManager from '../managers/EmitterManager'
 import ResizeManager from '../managers/ResizeManager'
+import LoadManager from '../managers/LoadManager'
 import ViewportObserver from '../observers/ViewportObserver'
 import { ticker } from 'pixi.js'
+
 
 export default class Anchor {
 
@@ -80,7 +82,7 @@ export default class Anchor {
 	initInstagram() {
 
 		const img = new Image()
-		img.src = global.instagram[this.id - 1].images.standard_resolution.url
+		img.src = LoadManager.instagram[this.id - 1].images.standard_resolution.url
 		img.classList.add('anchor__bkg')
 		img.classList.add('fit')
 

@@ -1,17 +1,18 @@
 import '../scss/style.scss'
 
+import EmitterManager from './managers/EmitterManager'
 import AppManager from './managers/AppManager'
+import LoadManager from './managers/LoadManager'
 
-import Loader from './components/Loader'
 
 (() => {
 
 	// DOM ready
 
-	// Load Insta
-	const url = 'http://uqstaging.com/instagram/' // /!\ you need to remove add blockers
+	EmitterManager.on('LOADED', AppManager.start)
 
-	Loader.loadJSON(url, AppManager.start)
+	// Main loading
+	LoadManager.load()
 
 
 })()

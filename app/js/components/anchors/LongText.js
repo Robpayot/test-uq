@@ -1,4 +1,4 @@
-// import ResizeManager from '../managers/ResizeManager'
+import ResizeManager from '../../managers/ResizeManager'
 import Anchor from '../Anchor'
 
 export default class LongText extends Anchor {
@@ -10,6 +10,8 @@ export default class LongText extends Anchor {
 
 		this.ui.text = this.el.querySelector('.long-text__inner')
 
+		this.maxW = this.ui.text.offsetWidth - ResizeManager.width
+
 	}
 
 	handleScrollUpdate(scrollTarget) {
@@ -19,11 +21,10 @@ export default class LongText extends Anchor {
 		super.handleScrollUpdate(scrollTarget)
 
 		// update text
+		// since apparition
+		const percent = (-scrollTarget + ResizeManager.height - this.startFix ) / (this.elOffsetHeight * 2)
 
-		// // --> percent Deplacement de l'image
-		const percent = (-scrollTarget + this.startFix) / this.elOffsetHeight
-
-		this.ui.text.style.left = `${percent}%`
+		this.ui.text.style.left = `-${percent * this.maxW}px`
 
 	}
 
