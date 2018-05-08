@@ -28,9 +28,6 @@ export default class Scroller {
 		// events
 		this.events(true)
 
-		// Trigger scroll once
-		EmitterManager.emit(SCROLL_UPDATE, this.scrollTargetSmooth)
-
 	}
 
 	bind() {
@@ -42,7 +39,7 @@ export default class Scroller {
 
 	events(method) {
 
-		let onListener = method === false ? 'off' : 'on'
+		let onListener = method === false ? 'removeListener' : 'on'
 		let evListener = method === false ? 'removeEventListener' : 'addEventListener'
 
 		document[evListener]('scroll', this.handleScroll)
