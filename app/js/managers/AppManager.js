@@ -1,4 +1,5 @@
 // import EmitterManager from './EmitterManager'
+// import Loader from '../components/Loader'
 
 class AppManager {
 
@@ -9,6 +10,11 @@ class AppManager {
 	start() {
 
 		console.log('start')
+
+		// No routes, only one view
+
+		this.currentPage = new MasterView()
+
 	}
 
 }

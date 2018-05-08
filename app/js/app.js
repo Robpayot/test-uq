@@ -2,25 +2,16 @@ import '../scss/style.scss'
 
 import AppManager from './managers/AppManager'
 
+import Loader from './components/Loader'
+
 (() => {
 
-	console.log('hello')
-	// Load instagram pictures
+	// DOM ready
 
-	const xmlhttp = new XMLHttpRequest()
-	const url = 'https://uqstaging.com/instagram/'
+	// Load Insta
+	const url = 'http://uqstaging.com/instagram/' // /!\ you need to remove addBlockers
 
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState === 4 && this.status === 200) {
-			const myArr = JSON.parse(this.responseText)
-			console.log(myArr)
-
-			AppManager.start()
-
-		}
-	}
-	xmlhttp.open('GET', url, true)
-	xmlhttp.send()
+	Loader.loadJSON(url, AppManager.start)
 
 
 })()
