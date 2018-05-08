@@ -15,19 +15,21 @@ export default class Hero extends Anchor {
 		return false
 	}
 
-	handleRaf() {
+	handleScrollUpdate(scrollTarget) {
 
-		super.handleRaf()
+		if (this.isInViewport === false) return false
+
+		super.handleScrollUpdate(scrollTarget)
 
 		// stay fix
-		if (-global.scrollTarget < this.elOffsetHeight) {
+		if (-scrollTarget < this.elOffsetHeight) {
 
-			this.el.style.transform = `translate3d(0, ${-global.scrollTarget}px, 0)`
+			this.el.style.transform = `translate3d(0, ${-scrollTarget}px, 0)`
 
 			// // --> percent Deplacement de l'image
-			const percent = (-global.scrollTarget + this.startFix) / this.elOffsetHeight
-			this.el.style.opacity = `${1 - percent}`
+			const percent = (-scrollTarget + this.startFix) / this.elOffsetHeight
 
+			this.el.style.opacity = `${1 - percent}`
 
 			const scale = 0.3 // + 0.3
 

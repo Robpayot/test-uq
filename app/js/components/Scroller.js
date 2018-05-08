@@ -66,6 +66,8 @@ export default class Scroller {
 		this.previousScrollTarget = this.scrollTarget
 		this.scrollTarget = -scrollingElement.scrollTop
 
+		// Listen the handleRaf only when scrolling
+
 		if (this.isScrollTicking !== true) {
 
 			ticker.shared.add(this.handleRaf)
@@ -96,15 +98,12 @@ export default class Scroller {
 
 		this.prevTargetYSmooth = this.scrollTargetSmooth
 
-
-		// console.log(this.scrollTargetSmooth)
-
 	}
 
 	handleScrollUpdate(scrollTarget) {
-		// Apply translation on the main content
 
-		global.scrollTarget = scrollTarget
+		// Apply translation on the main content
+		// only when scrolling
 
 		this.el.style.transform = `translate3d(0, ${scrollTarget}px, 0)`
 	}

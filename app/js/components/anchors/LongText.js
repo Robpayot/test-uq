@@ -12,16 +12,16 @@ export default class LongText extends Anchor {
 
 	}
 
-	handleRaf() {
+	handleScrollUpdate(scrollTarget) {
 
-		console.log(-this.scrollTarget, this.startFix, this.startEnd)
+		if (this.isInViewport === false) return false
+
+		super.handleScrollUpdate(scrollTarget)
 
 		// update text
 
 		// // --> percent Deplacement de l'image
-		const percent = (-this.scrollTarget + this.startFix) / this.elOffsetHeight
-
-		console.log(percent)
+		const percent = (-scrollTarget + this.startFix) / this.elOffsetHeight
 
 		this.ui.text.style.left = `${percent}%`
 

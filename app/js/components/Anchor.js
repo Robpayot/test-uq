@@ -49,14 +49,17 @@ export default class Anchor {
 		if (this.isIntersecting) {
 
 			this.el.classList.add('is-visible')
+			this.isInViewport = true
 
 			if (this.handleRaf instanceof Function) {
+				// Listen this raf only if in viewport, constantly
 				ticker.shared.add(this.handleRaf)
 			}
 
 		} else {
 
 			this.el.classList.remove('is-visible')
+			this.isInViewport = false
 
 			if (this.handleRaf instanceof Function) {
 				ticker.shared.remove(this.handleRaf)
@@ -85,28 +88,24 @@ export default class Anchor {
 
 	}
 
-	handleScrollUpdate() {
+	handleScrollUpdate(scrollTarget) {
 
-		// // add transi-in at 30% top of the section
-		// // if (this.hasAppeared !== true) {
-		// if (-scrollTarget + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
-		// 	this.el.classList.add('transi-in')
-		// 	this.hasAppeared = true
-		// } else {
-		// 	this.el.classList.remove('transi-in')
-		// }
-		// // }
+		// Listen only when scrolling, if it's stop, no listening
+
+		if (this.isInViewport === false) return false
+		// Check if is in viewport
+
+		// add transi-in at 30% top of the section
+		if (-scrollTarget + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
+			this.el.classList.add('transi-in')
+		} else {
+			this.el.classList.remove('transi-in')
+		}
 
 	}
 
 	handleRaf() {
-
-		if (-global.scrollTarget + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
-			this.el.classList.add('transi-in')
-			this.hasAppeared = true
-		} else {
-			this.el.classList.remove('transi-in')
-		}
+		// Listen only if it's in viewport, constantly
 	}
 
 	setUnits() {
