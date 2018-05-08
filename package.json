@@ -1,0 +1,50 @@
+{
+  "name": "test-uq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robpayot/shaking-drops.git"
+  },
+  "author": "Robin Payot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robpayot/shaking-drops/issues"
+  },
+  "homepage": "https://github.com/Robpayot/shaking-drops#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.37",
+    "@babel/preset-env": "^7.0.0-beta.37",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^8.0.0-beta.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.3.1",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.15.0",
+    "eslint-loader": "^1.9.0",
+    "eventemitter3": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "fontfaceobserver": "^2.0.13",
+    "gsap": "^1.20.3",
+    "html-loader": "^0.5.4",
+    "html-webpack-plugin": "^2.30.1",
+    "lodash.throttle": "^4.1.1",
+    "node-sass": "^4.7.2",
+    "object-fit-images": "^3.2.3",
+    "path": "^0.12.7",
+    "pixi.js": "^4.7.0",
+    "reload-html-webpack-plugin": "^0.1.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7",
+    "webpack-merge": "^4.1.1"
+  }
+}
