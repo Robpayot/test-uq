@@ -5,16 +5,6 @@
 // Import core
 @import "core/import";
 
-
-// Add the layout dependencies here
-// @import "layouts/body";
-// @import "layouts/overlay";
-// @import "layouts/header";
-// @import "layouts/footer";
-
-// Typography
-@import "typography/titles";
-@import "typography/subtitles";
-
 // Add your components here
+@import "components/html";
 @import "components/anchor";

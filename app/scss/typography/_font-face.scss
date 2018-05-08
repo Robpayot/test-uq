@@ -1,7 +1,8 @@
-// // /* ------------------------------------------------------------------ */
-// // /*        FONT FACE DECLARATION
-// // /* ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ */
+/*        FONT FACE DECLARATION
+/* ------------------------------------------------------------------ */
 
+// Exemple
 // @font-face {
 //     font-family: 'GT-Walsheim';
 //     src: url('../fonts/gt-walsheim-regular.woff') format('woff'),
@@ -10,73 +11,37 @@
 //     font-style: normal;
 // }
 
-// @font-face {
-//     font-family: 'GT-Walsheim-light';
-//     src: url('../fonts/gt-walsheim-light.woff') format('woff'),
-//          url('../fonts/gt-walsheim-light.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-// }
 
-// @font-face {
-//     font-family: 'GT-Walsheim-medium';
-//     src: url('../fonts/gt-walsheim-medium.woff') format('woff'),
-//          url('../fonts/gt-walsheim-medium.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'GT-Walsheim-bold';
-//     src: url('../fonts/gt-walsheim-bold.woff') format('woff'),
-//          url('../fonts/gt-walsheim-bold.ttf') format('truetype');
-//     font-weight: bold;
-//     font-style: normal;
-// }
+/* ------------------------------------------------------------------ */
+/*        VARIABLES DECLARATION
+/* ------------------------------------------------------------------ */
 
 
-// // /* ------------------------------------------------------------------ */
-// // /*        VARIABLES DECLARATION
-// // /* ------------------------------------------------------------------ */
+%Regular {
+    @extend %smooth; // Optionnal
+    font-family: 'Lato', sans-serif;
+}
 
-// // %ExtraLight {
-// //     @extend %smooth; // Optionnal
-// //     font-family: 'Gotham-ExtraLight';
-// //     font-weight:normal;
-// // }
+%Light {
+    @extend %smooth; // Optionnal
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
 
-// %Regular {
-//     @extend %smooth; // Optionnal
-//     font-family: 'GT-Walsheim';
-// }
+%Bold {
+    @extend %smooth; // Optionnal
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
 
-// %Medium {
-//     @extend %smooth; // Optionnal
-//     font-family: 'GT-Walsheim-medium';
-// }
+/* ------------------------------------------------------------------ */
+/*        APPLY TO ALL CLASS
+/* ------------------------------------------------------------------ */
 
-// %Light {
-//     @extend %smooth; // Optionnal
-//     font-family: 'GT-Walsheim-light';
-// }
+[class*="--light"] {
+    @extend %Light;
+}
 
-// %Bold {
-//     @extend %smooth; // Optionnal
-//     font-family: 'GT-Walsheim-bold';
-// }
-
-// // /* ------------------------------------------------------------------ */
-// // /*        APPLY TO ALL CLASS
-// // /* ------------------------------------------------------------------ */
-
-// [class*="--light"] {
-//     @extend %Light;
-// }
-
-// [class*="--medium"] {
-//     @extend %Medium;
-// }
-
-// [class*="--bold"] {
-//     @extend %Bold;
-// }
+[class*="--bold"] {
+    @extend %Bold;
+}
