@@ -5,11 +5,22 @@ import AppManager from './managers/AppManager'
 (() => {
 
 	console.log('hello')
+	// Load instagram pictures
 
+	const xmlhttp = new XMLHttpRequest()
+	const url = 'http://uqstaging.com/instagram/'
 
-	AppManager.start()
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState === 4 && this.status === 200) {
+			const myArr = JSON.parse(this.responseText)
+			console.log(myArr)
+
+			AppManager.start()
+
+		}
+	}
+	xmlhttp.open('GET', url, true)
+	xmlhttp.send()
+
 
 })()
-
-
-
