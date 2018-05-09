@@ -1,17 +1,56 @@
 .footer {
+
+    p {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+
     &__socials {
 
         display: flex;
         margin-top: 5rem;
         width: 40rem;
         justify-content: space-around;
-        a {
-            display: inline-block;
-        }
+
         svg {
             fill: white;
             width: 7rem;
             height: 7rem;
+            transform: scale(1);
+            transition: transform 1s $ExpoEaseOut;
+
+            &:hover {
+                transform: scale(1.2);
+                
+            }
+        }
+    }
+
+    &__social {
+        display: inline-block;
+        transform: scale(0.6);
+        opacity: 0;
+
+    }
+
+    &.transi-in {
+        p,
+        .footer__social {
+            transform: scale(1);
+            opacity: 1;
+            transition: opacity 1s ease, transform 1.8s $ExpoEaseOut;
+        }
+
+        .footer__social {
+            &:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+            &:nth-child(2) {
+                transition-delay: 0.2s;
+            }
+            &:nth-child(3) {
+                transition-delay: 0.3s;
+            }
         }
     }
 }
