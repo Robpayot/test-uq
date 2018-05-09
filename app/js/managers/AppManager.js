@@ -18,6 +18,10 @@ class AppManager {
 
 		this.currentPage = new MasterView()
 
+		// remove loader
+		this.loader = document.querySelector('.loader')
+		this.loader.classList.add('is-loaded')
+
 	}
 
 }

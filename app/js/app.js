@@ -4,7 +4,6 @@ import EmitterManager from './managers/EmitterManager'
 import AppManager from './managers/AppManager'
 import LoadManager from './managers/LoadManager'
 
-
 (() => {
 
 	// DOM ready

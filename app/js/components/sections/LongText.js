@@ -10,6 +10,9 @@ export default class LongText extends Section {
 		this.type = 'long text'
 
 		this.ui.text = this.el.querySelector('.long-text__inner')
+		this.ui.bkg = this.el.querySelector('.section__bkg')
+
+		this.maxTranslate = 100
 
 		let dist = this.ui.text.children[0].offsetWidth
 

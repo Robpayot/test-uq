@@ -1,6 +1,26 @@
 .hero {
     height: 100vh;
 
+    &__inner {
+
+        .title,
+        .subtitle {
+            opacity: 0;
+            transform: scale(0.8);
+            will-change: transform;
+
+            .transi-in & {
+                opacity: 1;
+                transform: scale(1);
+                transition: opacity 1s ease 1.2s, transform 1.8s $easeToinou 1.2s;
+
+                &:nth-child(2) {
+                    transition-delay: 1.6s;
+                }
+            }
+        }
+    }
+
     svg {
         position: absolute;
         width: 3rem;
@@ -16,15 +36,15 @@
 
 @keyframes oscillate {
     0% {
-        bottom: 6.5rem;
+        opacity: 1;
     }
     25% {
-        bottom: 5rem;
+        opacity: 0;
     }
     50% {
-        bottom: 6.5rem;
+        opacity: 1;
     }
     100% {
-        bottom: 6.5rem;
+        opacity: 1;
     }
 }

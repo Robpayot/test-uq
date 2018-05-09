@@ -5,6 +5,7 @@ import Hero from '../components/sections/Hero'
 import Distortion from '../components/sections/Distortion'
 import LongText from '../components/sections/LongText'
 import BigText from '../components/sections/BigText'
+import Squares from '../components/sections/Squares'
 
 export default class MasterView {
 
@@ -28,6 +29,8 @@ export default class MasterView {
 				new BigText({ el, index })
 			} else if (el.classList.contains('distortion') === true) {
 				new Distortion({ el, index })
+			} else if (el.classList.contains('squares') === true) {
+				new Squares({ el, index })
 			} else if (el.classList.contains('long-text') === true) {
 				new LongText({ el, index })
 			} else {
@@ -35,6 +38,10 @@ export default class MasterView {
 			}
 
 		})
+
+		// Add transi In to first section after loaded
+
+		this.ui.sections[0].classList.add('transi-in')
 
 	}
 

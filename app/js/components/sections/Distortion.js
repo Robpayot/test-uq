@@ -13,9 +13,6 @@ export default class Distortion extends Section {
 
 		this.resources = LoadManager.pixiResources
 
-		this.slideIndex = 0
-		this.timeDelay = 1
-
 		// Create a Pixi renderer and define size
 		this.renderer = autoDetectRenderer(this.el.offsetWidth, this.el.offsetHeight)
 		this.renderer.plugins.interaction.destroy()
@@ -83,8 +80,9 @@ export default class Distortion extends Section {
 		// this.filter.enabled = false
 		this.filter.resolution = 0.75
 
-		this.scaleMax = 150
-		this.offsetSpeed = 2
+		this.scaleMax = ResizeManager.width * 0.1
+		// based on 1440px width --> scale force 150
+		// this.offsetSpeed = 2
 
 		let max = Math.max(this.renderer.view.offsetWidth, this.renderer.view.offsetHeight)
 		this.filter.initScale = max / this.filter.uniforms.mapSampler.width // get original width
@@ -139,7 +137,6 @@ export default class Distortion extends Section {
 		if (this.isInViewport === false) return false
 
 		super.handleScrollUpdate(scrollTarget)
-		this.scrollTarget = scrollTarget
 
 		// update filter scale from apparition
 		const percent = (-scrollTarget + ResizeManager.height - this.startFix ) / (this.elOffsetHeight * 2)

@@ -1,4 +1,7 @@
 import EmitterManager from './EmitterManager'
+import json from '../../datas/instagram.json'
+
+// console.log(json)
 
 import { loader as pixiLoader } from 'pixi.js'
 
@@ -13,7 +16,7 @@ class LoadManager {
 
 	load() {
 		// Load Insta
-		const url = 'https://uqstaging.com/instagram/' // /!\ you need to remove add blockers
+		const url = 'http://uqstaging.com/instagram/' // /!\ you need to remove add blockers
 		// Issue due to mixed content http https on my gh-page
 
 		this.loadJSON(url)
@@ -24,20 +27,28 @@ class LoadManager {
 
 		// is loading
 
-		const xmlhttp = new XMLHttpRequest()
+		// Commented due to mixed content error on prod http / https
 
-		// Load JSON
-		xmlhttp.onreadystatechange = () => {
-			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-				this.instagram = JSON.parse(xmlhttp.responseText).data
+		// const xmlhttp = new XMLHttpRequest()
 
-				// Load Pixi
-				this.loadPIXI()
+		// // Load JSON
+		// xmlhttp.onreadystatechange = () => {
+		// 	if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+		// 		this.instagram = JSON.parse(xmlhttp.responseText).data
 
-			}
-		}
-		xmlhttp.open('GET', url, true)
-		xmlhttp.send()
+		// 		// Load Pixi
+		// 		this.loadPIXI()
+
+		// 	}
+		// }
+		// xmlhttp.open('GET', url, true)
+		// xmlhttp.send()
+		this.url = url
+
+		this.instagram = json.data
+		// Load Pixi
+		this.loadPIXI()
+
 	}
 
 	loadPIXI() {
