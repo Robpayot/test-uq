@@ -13,9 +13,8 @@ class LoadManager {
 
 	load() {
 		// Load Insta
-		// const url = 'http://uqstaging.com/instagram/' // /!\ you need to remove add blockers
+		const url = 'https://uqstaging.com/instagram/' // /!\ you need to remove add blockers
 		// Issue due to mixed content http https on my gh-page
-		const url = 'instagram/'
 
 		this.loadJSON(url)
 	}
