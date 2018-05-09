@@ -31,7 +31,7 @@
         }
 
         p {
-            transition: transform 1.4s $easeToinou;
+            transition: transform 1.4s $easeToinou 0.07s;
         }
 
         .transi-in & {

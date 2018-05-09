@@ -31,9 +31,9 @@ export default class Hero extends Section {
 
 			this.el.style.opacity = `${1 - percent}`
 
-			// const scale = 0.3 // + 0.3
+			const scale = 0.2 // + 0.2
 
-			// this.ui.img.style.transform = `scale(${1 + scale * percent}, ${1 + scale * percent})` // /!\ a bit laggy with big image
+			this.ui.img.style.transform = `scale(${1 + scale * percent}, ${1 + scale * percent})` // /!\ a bit laggy with big image
 
 		}
 
