@@ -13,7 +13,7 @@ class LoadManager {
 
 	load() {
 		// Load Insta
-		const url = 'https://uqstaging.com/instagram/' // /!\ you need to remove add blockers
+		const url = 'http://uqstaging.com/instagram/' // /!\ you need to remove add blockers
 
 		this.loadJSON(url)
 	}
