@@ -13,7 +13,7 @@ export default class Scroller {
 
 		// UI
 		this.ui = {
-			sections: [... this.el.querySelectorAll('.section')]
+			sections: [...this.el.querySelectorAll('.section')]
 		}
 
 		this.bind()
@@ -52,11 +52,19 @@ export default class Scroller {
 
 	createScroll(height) {
 
-		// create div with full content height
-		const div = document.createElement('div')
-		div.className = 'scroller'
-		document.body.appendChild(div)
-		div.style.height = `${height}px`
+		let el = document.body.querySelector('.scroller')
+
+		if (el) {
+			// update
+			el.style.height = `${height}px`
+		} else {
+			// create div with full content height
+			const div = document.createElement('div')
+			div.className = 'scroller'
+			document.body.appendChild(div)
+			div.style.height = `${height}px`
+		}
+
 	}
 
 	handleScroll() {
@@ -130,6 +138,8 @@ export default class Scroller {
 	}
 
 	handleResize() {
+
+		this.setUnits(true)
 
 	}
 
