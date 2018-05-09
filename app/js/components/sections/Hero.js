@@ -1,4 +1,5 @@
 import Section from '../Section'
+import Device from '../../utils/device'
 
 export default class Hero extends Section {
 
@@ -22,19 +23,20 @@ export default class Hero extends Section {
 		super.handleScrollUpdate(scrollTarget)
 
 		// stay fix
-		if (-scrollTarget < this.elOffsetHeight) {
 
-			this.el.style.transform = `translate3d(0, ${-scrollTarget}px, 0)`
+		this.el.style.transform = `translate3d(0, ${-scrollTarget}px, 0)`
 
-			// --> percent Deplacement de l'image
-			const percent = (-scrollTarget + this.startFix) / this.elOffsetHeight
+		// --> percent Deplacement de l'image
+		const percent = (-scrollTarget + this.startFix) / this.elOffsetHeight
 
-			this.el.style.opacity = `${1 - percent}`
+		this.el.style.opacity = `${1 - percent}`
+
+
+		if (Device.size !== 'mobile') {
 
 			const scale = 0.2 // + 0.2
 
 			this.ui.img.style.transform = `scale(${1 + scale * percent}, ${1 + scale * percent})` // /!\ a bit laggy with big image
-
 		}
 
 	}

@@ -1,7 +1,19 @@
 .column-parallax {
 
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        @include mobile {
+            position: absolute;
+        }
+    }
+
     &__item {
-        width: 30rem;
 
         position: absolute;
         transform: translate(-50%, -50%);
@@ -24,6 +36,14 @@
         }
         &:nth-child(4) {
             top: calc(80% + 40rem);
+        }
+
+        @include mobile {
+            position: relative;
+            top: auto !important;
+            left: auto !important;
+            transform: none;
+            margin: 5rem;
         }
 
 
@@ -56,11 +76,18 @@
             box-shadow: 8px 6px 21px 5px #00000061;
             cursor: pointer;
             height: 30rem;
+            width: 30rem;
             display: flex;
             justify-content: center;
             align-items: center;
             &:hover {
                 transform: scale(1.2);
+            }
+
+            @include mobile {
+                width: 22rem;
+                height: 22rem;
+                padding: 1rem;
             }
         }
     }

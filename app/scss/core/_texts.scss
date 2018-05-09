@@ -1,6 +1,10 @@
 [class*="text"] {
     line-height: 1.6em;
     letter-spacing: 0.02em;
+
+    @include mobile {
+        line-height: 1.4em;
+    }
 }
 
 [class*="-16"] {

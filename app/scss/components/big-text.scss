@@ -20,5 +20,10 @@
         p div {
             will-change: transform;
         }
+
+        @include mobile {
+            width: 80%;
+            text-align: center;
+        }
     }
 }

@@ -20,6 +20,12 @@
             }
         }
 
+        @include mobile {
+            display: inline-block;
+            width: 90%;
+            text-align: center;
+        }
+
         &__img {
             width: 10rem;
             height: 10rem;
@@ -28,6 +34,12 @@
 
             transform: scale(1);
             transition: transform 1.8s $ExpoEaseOut;
+
+            @include mobile {
+                display: inline-block;
+                margin-right: 0;
+                margin-bottom: 5rem;
+            }
         }
 
         p {

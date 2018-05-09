@@ -1,5 +1,18 @@
 .squares {
 
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        @include mobile {
+            position: absolute;
+        }
+    }
+
     &__item {
 
         position: absolute;
@@ -23,6 +36,14 @@
         }
         &:nth-child(4) {
             top: calc(80% + 40rem);
+        }
+
+        @include mobile {
+            position: relative;
+            top: auto !important;
+            left: auto !important;
+            transform: none;
+            margin: 5rem;
         }
 
 
@@ -60,6 +81,12 @@
             cursor: pointer;
             &:hover {
                 transform: scale(1.2);
+            }
+
+            @include mobile {
+                width: 22rem;
+                height: 22rem;
+                padding: 1rem;
             }
         }
     }
