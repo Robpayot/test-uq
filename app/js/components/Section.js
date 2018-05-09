@@ -63,6 +63,11 @@ export default class Section {
 				this.enable()
 			}
 
+			if (this.tl) {
+				// Listen gsap TimelineMax if any
+				this.tl.play()
+			}
+
 		} else {
 
 			this.el.classList.remove('is-visible')
@@ -75,6 +80,11 @@ export default class Section {
 			if (this.disable instanceof Function) {
 				// Listen  for distortion
 				this.disable()
+			}
+
+			if (this.tl) {
+				// Listen gsap TimelineMax if any
+				this.tl.pause()
 			}
 
 		}
@@ -111,12 +121,16 @@ export default class Section {
 		if (-scrollTarget + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
 			this.el.classList.add('transi-in')
 
-			if (this.transitionIn instanceof Function) {
+			if (this.transitionIn instanceof Function && this.isTransiIn !== true) {
 				// Listen if there is a JS transition in on the section
 				this.transitionIn()
 			}
+
+			this.isTransiIn = true
+
 		} else {
 			this.el.classList.remove('transi-in')
+			this.isTransiIn = false
 		}
 
 	}

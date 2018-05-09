@@ -4,6 +4,7 @@ import Section from '../components/Section'
 import Hero from '../components/sections/Hero'
 import Distortion from '../components/sections/Distortion'
 import LongText from '../components/sections/LongText'
+import BigText from '../components/sections/BigText'
 
 export default class MasterView {
 
@@ -23,6 +24,8 @@ export default class MasterView {
 
 			if (el.classList.contains('hero') === true) {
 				new Hero({ el, index })
+			} else if (el.classList.contains('big-text') === true) {
+				new BigText({ el, index })
 			} else if (el.classList.contains('distortion') === true) {
 				new Distortion({ el, index })
 			} else if (el.classList.contains('long-text') === true) {

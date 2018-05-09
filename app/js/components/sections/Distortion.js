@@ -83,7 +83,7 @@ export default class Distortion extends Section {
 		// this.filter.enabled = false
 		this.filter.resolution = 0.75
 
-		this.scaleMax = 100
+		this.scaleMax = 150
 		this.offsetSpeed = 2
 
 		let max = Math.max(this.renderer.view.offsetWidth, this.renderer.view.offsetHeight)
