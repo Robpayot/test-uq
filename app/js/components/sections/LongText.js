@@ -1,5 +1,6 @@
-import ResizeManager from '../../managers/ResizeManager'
+// import ResizeManager from '../../managers/ResizeManager'
 import Section from '../Section'
+import { TimelineMax } from 'gsap'
 
 export default class LongText extends Section {
 
@@ -10,21 +11,14 @@ export default class LongText extends Section {
 
 		this.ui.text = this.el.querySelector('.long-text__inner')
 
-		this.maxW = this.ui.text.offsetWidth - ResizeManager.width
+		let dist = this.ui.text.children[0].offsetWidth
 
-	}
+		this.tl = new TimelineMax({
+			repeat: -1,
+			paused: true
+		})
 
-	handleScrollUpdate(scrollTarget) {
-
-		if (this.isInViewport === false) return false
-
-		super.handleScrollUpdate(scrollTarget)
-
-		// update text
-		// since apparition
-		// const percent = (-scrollTarget + ResizeManager.height - this.startFix ) / (this.elOffsetHeight * 2)
-
-		// this.ui.text.style.left = `-${percent * this.maxW}px`
+		this.tl.to(this.ui.text, 8, { x: -dist, ease: window.Linear.easeNone })
 
 	}
 
