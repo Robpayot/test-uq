@@ -13,7 +13,7 @@ export default class Scroller {
 
 		// UI
 		this.ui = {
-			anchors: [... this.el.querySelectorAll('.anchor')]
+			sections: [... this.el.querySelectorAll('.section')]
 		}
 
 		this.bind()
@@ -112,14 +112,14 @@ export default class Scroller {
 
 	setUnits() {
 
-		this.anchorsOffsetsHeight = this.ui.anchors.map(anchor => anchor.offsetHeight)
+		this.sectionsOffsetsHeight = this.ui.sections.map(section => section.offsetHeight)
 
 		let totalHeight = 0
 
-		for (let i = 0; i < this.ui.anchors.length; i++) {
+		for (let i = 0; i < this.ui.sections.length; i++) {
 
 			// calcul Body height
-			totalHeight += this.anchorsOffsetsHeight[i]
+			totalHeight += this.sectionsOffsetsHeight[i]
 
 		}
 

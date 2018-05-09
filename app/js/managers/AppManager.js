@@ -1,10 +1,13 @@
 import MasterView from '../views/MasterView'
+import SplitText from '../vendor/SplitText'
 
 class AppManager {
 
 	constructor() {
 
 		this.bind()
+
+		console.log(SplitText)
 
 	}
 

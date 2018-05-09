@@ -1,10 +1,10 @@
-import Anchor from '../Anchor'
+import Section from '../Section'
 import ResizeManager from '../../managers/ResizeManager'
 import LoadManager from '../../managers/LoadManager'
 // PIXI v4
 import { autoDetectRenderer, Container, Sprite, WRAP_MODES, filters } from 'pixi.js'
 
-export default class Distortion extends Anchor {
+export default class Distortion extends Section {
 
 	constructor(obj) {
 		super(obj)

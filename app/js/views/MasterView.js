@@ -1,9 +1,9 @@
 import Scroller from '../components/Scroller'
-// anchors
-import Anchor from '../components/Anchor'
-import Hero from '../components/anchors/Hero'
-import Distortion from '../components/anchors/Distortion'
-import LongText from '../components/anchors/LongText'
+// sections
+import Section from '../components/Section'
+import Hero from '../components/sections/Hero'
+import Distortion from '../components/sections/Distortion'
+import LongText from '../components/sections/LongText'
 
 export default class MasterView {
 
@@ -12,14 +12,14 @@ export default class MasterView {
 		this.el = document.getElementById('main')
 
 		this.ui = {
-			anchors: this.el.querySelectorAll('.anchor')
+			sections: this.el.querySelectorAll('.section')
 		}
 
 		// Init modules
 
 		this.scroller = new Scroller(this.el)
 
-		this.ui.anchors.forEach((el, index) => {
+		this.ui.sections.forEach((el, index) => {
 
 			if (el.classList.contains('hero') === true) {
 				new Hero({ el, index })
@@ -28,7 +28,7 @@ export default class MasterView {
 			} else if (el.classList.contains('long-text') === true) {
 				new LongText({ el, index })
 			} else {
-				new Anchor({ el, index })
+				new Section({ el, index })
 			}
 
 		})

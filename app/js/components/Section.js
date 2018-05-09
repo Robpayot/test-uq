@@ -7,7 +7,7 @@ import ViewportObserver from '../observers/ViewportObserver'
 import { ticker } from 'pixi.js'
 
 
-export default class Anchor {
+export default class Section {
 
 	constructor(obj) {
 
@@ -93,7 +93,7 @@ export default class Anchor {
 
 		const img = new Image()
 		img.src = LoadManager.instagram[this.id - 1].images.standard_resolution.url
-		img.classList.add('anchor__bkg')
+		img.classList.add('section__bkg')
 		img.classList.add('fit')
 
 		this.el.appendChild(img)
@@ -110,6 +110,11 @@ export default class Anchor {
 		// add transi-in at 30% top of the section
 		if (-scrollTarget + ResizeManager.height > this.startFix + ResizeManager.height * 0.3) {
 			this.el.classList.add('transi-in')
+
+			if (this.transitionIn instanceof Function) {
+				// Listen if there is a JS transition in on the section
+				this.transitionIn()
+			}
 		} else {
 			this.el.classList.remove('transi-in')
 		}

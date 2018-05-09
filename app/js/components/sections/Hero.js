@@ -1,6 +1,6 @@
-import Anchor from '../Anchor'
+import Section from '../Section'
 
-export default class Hero extends Anchor {
+export default class Hero extends Section {
 
 	constructor(obj) {
 		super(obj)

@@ -1,7 +1,7 @@
 import ResizeManager from '../../managers/ResizeManager'
-import Anchor from '../Anchor'
+import Section from '../Section'
 
-export default class LongText extends Anchor {
+export default class LongText extends Section {
 
 	constructor(obj) {
 		super(obj)
