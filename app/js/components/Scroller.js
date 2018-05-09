@@ -114,7 +114,7 @@ export default class Scroller {
 		// Apply translation on the main content
 		// only when scrolling
 
-		this.el.style.transform = `translate3d(0, ${scrollTarget}px, 0)`
+		if (Device.size !== 'mobile') this.el.style.transform = `translate3d(0, ${scrollTarget}px, 0)`
 	}
 
 
@@ -133,7 +133,6 @@ export default class Scroller {
 		}
 
 		this.limit = -totalHeight + ResizeManager.height
-		console.log(Device.size)
 
 		if (Device.size !== 'mobile') this.createScroll(totalHeight)
 

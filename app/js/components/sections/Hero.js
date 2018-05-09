@@ -22,17 +22,17 @@ export default class Hero extends Section {
 
 		super.handleScrollUpdate(scrollTarget)
 
-		// stay fix
-
-		this.el.style.transform = `translate3d(0, ${-scrollTarget}px, 0)`
-
-		// --> percent Deplacement de l'image
-		const percent = (-scrollTarget + this.startFix) / this.elOffsetHeight
-
-		this.el.style.opacity = `${1 - percent}`
-
 
 		if (Device.size !== 'mobile') {
+
+			// stay fix
+
+			this.el.style.transform = `translate3d(0, ${-scrollTarget}px, 0)`
+
+			// --> percent Deplacement de l'image
+			const percent = (-scrollTarget + this.startFix) / this.elOffsetHeight
+
+			this.el.style.opacity = `${1 - percent}`
 
 			const scale = 0.2 // + 0.2
 
