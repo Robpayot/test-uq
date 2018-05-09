@@ -3,7 +3,7 @@ import EmitterManager from './EmitterManager'
 import { loader as pixiLoader } from 'pixi.js'
 
 import noise from '../../images/noise.jpg'
-import hero from '../../images/hero.jpg'
+import background from '../../images/abstract-4.jpg'
 
 class LoadManager {
 
@@ -41,11 +41,11 @@ class LoadManager {
 
 	loadPIXI() {
 
-		this.hero = hero
+		this.background = background
 		this.noise = noise
 
 		// Load static textures (noise...)
-		pixiLoader.add('hero', this.hero)
+		pixiLoader.add('background', this.background)
 		pixiLoader.add('noise', this.noise)
 
 		pixiLoader.load((loader, resources) => {

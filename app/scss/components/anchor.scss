@@ -1,9 +1,18 @@
 .anchor {
     height: 65.0rem;
+
     background-color: black;
     visibility: hidden;
     position: relative;
     z-index: 1;
+
+    &--medium {
+        height: 97.5rem;
+    }
+
+    &--big {
+        height: 130.0rem;
+    }
 
     &.is-visible {
         visibility: visible;

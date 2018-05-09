@@ -1,0 +1,15 @@
+.list {
+
+    &__item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3rem;
+
+        &__img {
+            width: 10rem;
+            height: 10rem;
+            overflow: hidden;
+            margin-right: 5rem;
+        }
+    }
+}

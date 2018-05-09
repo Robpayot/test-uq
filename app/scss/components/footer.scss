@@ -1,0 +1,17 @@
+.footer {
+    &__socials {
+
+        display: flex;
+        margin-top: 5rem;
+        width: 40rem;
+        justify-content: space-around;
+        a {
+            display: inline-block;
+        }
+        svg {
+            fill: white;
+            width: 7rem;
+            height: 7rem;
+        }
+    }
+}

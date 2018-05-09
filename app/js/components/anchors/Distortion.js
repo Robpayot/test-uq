@@ -32,7 +32,7 @@ export default class Distortion extends Anchor {
 		this.noiseSprite.texture.baseTexture.wrapMode = WRAP_MODES.REPEAT
 
 		// Create a sprite to display
-		this.sprite = this.setImage(this.resources['hero'].texture)
+		this.sprite = this.setImage(this.resources['background'].texture)
 
 		// this.noiseSprite.initX = this.noiseSprite.x
 
