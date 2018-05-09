@@ -15,6 +15,7 @@
 
     &__item {
 
+        width: 30rem;
         position: absolute;
         transform: translate(-50%, -50%);
         top: calc(20% + 40rem);
@@ -44,6 +45,7 @@
             left: auto !important;
             transform: none;
             margin: 5rem;
+            width: auto;
         }
 
 

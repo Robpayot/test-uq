@@ -1,8 +1,11 @@
 import { SCROLL_UPDATE, WINDOW_RESIZE } from '../utils/events'
 import { getOffsetTop } from '../utils/dom'
+import Device from '../utils/device'
+
 import EmitterManager from '../managers/EmitterManager'
 import ResizeManager from '../managers/ResizeManager'
 import LoadManager from '../managers/LoadManager'
+
 import ViewportObserver from '../observers/ViewportObserver'
 import { ticker } from 'pixi.js'
 
@@ -68,6 +71,17 @@ export default class Section {
 				this.tl.play()
 			}
 
+			if (Device.size === 'mobile') {
+				this.el.classList.add('transi-in')
+
+				if (this.transitionIn instanceof Function && this.isTransiIn !== true) {
+					// Listen if there is a JS transition in on the section
+					this.transitionIn()
+				}
+
+				this.isTransiIn = true
+			}
+
 		} else {
 
 			this.el.classList.remove('is-visible')
@@ -85,6 +99,12 @@ export default class Section {
 			if (this.tl) {
 				// Listen gsap TimelineMax if any
 				this.tl.pause()
+			}
+
+			if (Device.size === 'mobile') {
+
+				this.el.classList.remove('transi-in')
+				this.isTransiIn = false
 			}
 
 		}
@@ -114,7 +134,7 @@ export default class Section {
 
 		// Listen only when scrolling, if it's stop, no listening
 
-		if (this.isInViewport === false) return false
+		if (this.isInViewport === false || Device.size === 'mobile') return false
 		// Check if is in viewport
 
 		// add transi-in at 30% top of the section

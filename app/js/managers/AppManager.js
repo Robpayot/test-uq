@@ -10,6 +10,8 @@ class AppManager {
 
 		this.bind()
 
+		this.handleResize()
+
 	}
 
 	bind() {
@@ -27,7 +29,6 @@ class AppManager {
 		this.loader.classList.add('is-loaded')
 
 		EmitterManager.on(WINDOW_RESIZE, this.handleResize)
-		this.handleResize()
 
 	}
 

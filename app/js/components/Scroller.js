@@ -1,6 +1,7 @@
 import EmitterManager from '../managers/EmitterManager'
 import { SCROLL_UPDATE, WINDOW_RESIZE } from '../utils/events'
 import ResizeManager from '../managers/ResizeManager'
+import Device from '../utils/device'
 import { ticker } from 'pixi.js'
 
 export const scrollingElement = document.scrollingElement || document.documentElement
@@ -132,8 +133,9 @@ export default class Scroller {
 		}
 
 		this.limit = -totalHeight + ResizeManager.height
+		console.log(Device.size)
 
-		this.createScroll(totalHeight)
+		if (Device.size !== 'mobile') this.createScroll(totalHeight)
 
 	}
 

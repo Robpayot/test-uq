@@ -9,6 +9,7 @@ html {
 
     @include mobile {
         font-size: 56.5%; // change global size of elements
+        overflow: auto;
     }
 
 }
@@ -19,6 +20,11 @@ body {
     height: 100vh;
     width: 100%;
     background-color: black;
+
+    @include mobile {
+        height: auto;
+        overflow: hidden;
+    }
 }
 
 *,
